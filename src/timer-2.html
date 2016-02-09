@@ -8,11 +8,16 @@
   <title></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  
+  
 </head>
 
-<body class="preload">
+<body class="preload" ng-app="myApp" ng-controller="myController">
   <header class="header">
-    <h1>FCC Pomodoro Timer</h1>
+    <h1>Angular Timer</h1>
+    <h3>{{ myNum }}</h3>
 
   </header>
 
@@ -70,7 +75,7 @@
   <script src="js/lib/jquery-1.11.3.min.js"></script>
   <script src="js/lib/knockout-3.2.0.min.js"></script>
 
-  <script src="js/timer-1.js"></script>
+  <script src="js/timer-2.js"></script>
 
 
 </body>
