@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16" data-require="angular.js@*"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/watch-1.js"></script>
+</head>
+
+<body ng-app="WatchTest">
+  <div ng-controller="watchTestCtrl-1">
+
+    First Name:
+    <input type="text" ng-model="firstName" />
+    <br/> Last Name:
+    <input type="text" ng-model="lastName" />
+    <br/> Hello: {{firstName}} {{lastName}}
+    <br/>
+    <Br/>
+    <button ng-click="onReset()">Reset</button>
+    <button ng-click="triggerChange()">Trigger Change</button>
+    <button ng-click="logName()">Log Name</button>
+
+  </div>
+
+  <div ng-controller="watchTestCtrl-2">
+
+    First Name:
+    <input type="text" ng-model="firstName" />
+    <br/> Last Name:
+    <input type="text" ng-model="lastName" />
+    <br/> Hello: {{firstName}} {{lastName}}
+    <br/>
+    <Br/>
+    <button ng-click="onReset()">Reset</button>
+    <button ng-click="triggerChangeWithApply()">Trigger Change With Apply</button>
+    <button ng-click="logName()">Log Name</button>
+
+  </div>  
+</body>
+
+</html>

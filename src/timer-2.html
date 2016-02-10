@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  
-  
+
+
 </head>
 
 <body class="preload" ng-app="myApp" ng-controller="myController">
@@ -27,7 +27,7 @@
         <h2 class="pomodoro">Pomodoro</h2>
         <h4>
           <i id="p-add" class="fa fa-plus-square pomodoro" ng-click="pomo_add()"></i>
-          <input id="options__pomodoro-length" class="pomodoro" type="text" ng-model="input_pomo">
+          <input id="options__pomodoro-length" class="pomodoro" type="text" ng-model="input_pomo_min">
           <i id="p-minus" class="fa fa-minus-square pomodoro" ng-click="pomo_minus()"></i>
         </h4>
       </div>
@@ -35,7 +35,7 @@
         <h2 class="break">Break</h2>
         <h4>
           <i id="b-add" class="fa fa-plus-square break" ng-click="break_add()"></i>
-          <input id="options__break-length" class="break" type="text" ng-model="input_break">
+          <input id="options__break-length" class="break" type="text" ng-model="input_break_min">
           <i id="b-minus" class="fa fa-minus-square break" ng-click="break_minus()"></i>
         </h4>
       </div>
@@ -46,7 +46,7 @@
       <svg height="300" width="300">
         <rect id="rect1" class="rect1" x="25" y="25" width="250" height="250" fill="#5fbf88" fill-opacity="0.5" />
         <circle id="circle1" class="circle circle1 break" cx="150" cy="150" r="79.5774715" stroke="#5fbf88" stroke-width="20" fill="none" />
-        <span id="timer1" class="timer-js"></span>
+        <span id="timer1" class="timer-js"> {{ myDisplay() }} </span>
       </svg>
     </div>
 
@@ -57,13 +57,13 @@
     </div>
 
     <div class="console">
-      <div>initial_ms_pomo: <span data-bind="text: initial_ms_pomo"></span></div>
-      <div>initial_ms_break: <span data-bind="text: initial_ms_break()"></span>
-        <div>pomo_input: <span data-bind="text: pomo_input"></span></div>
-        <div>break_input: <span data-bind="text: break_input()"></span></div>
-      </div>
-
+      <div>initial_ms_pomo: {{ initial_ms_pomo }} </div>
+      <div>initial_ms_break: {{ initial_ms_break }} </div>
+      <div>pomo_input_min: {{ input_pomo_min }}</div>
+      <div>break_input: {{ input_break_min }} </div>
     </div>
+
+  </div>
 
   </div>
 

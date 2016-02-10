@@ -43,7 +43,7 @@ h1 {
 }
 
 .console {
-  display: none;
+  display: block;
 }
 
 .header {

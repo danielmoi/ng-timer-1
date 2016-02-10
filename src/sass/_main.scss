@@ -19,7 +19,6 @@ body {
 }
 
 // COLOURS
-
 .break {
   color: $break;
 }
@@ -27,7 +26,6 @@ body {
 .pomodoro {
   color: $pomodoro;
 }
-
 
 // TYPOGRAPHY 
 p {
@@ -39,9 +37,8 @@ h1 {
 }
 
 // SECTIONS
-
 .console {
-  display: none;
+  display: block;
 }
 
 .header {
@@ -99,7 +96,6 @@ h1 {
   transform-origin: 50%;
 }
 
-
 .circle1 {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 0 linear;
@@ -116,7 +112,7 @@ input {
 }
 
 input.break {
-    border: 1px solid $break;
+  border: 1px solid $break;
 }
 
 i.fa:hover {
