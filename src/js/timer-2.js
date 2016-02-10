@@ -35,8 +35,16 @@ app.controller('myController', ['$scope', function ($scope) {
   $scope.input_pomo_min = 0.2;
   $scope.input_break_min = 0.3;
 
-  $scope.initial_ms_pomo = $scope.input_pomo_min * 1000 * 60;
-  $scope.initial_ms_break = $scope.input_break_min * 1000 * 60;
+//  $scope.initial_ms_pomo = $scope.input_pomo_min * 1000 * 60;
+//  $scope.initial_ms_break = $scope.input_break_min * 1000 * 60;
+  
+  $scope.$watch('input_pomo_min', function(value) {
+    $scope.initial_ms_pomo = value * 1000 * 60;
+  });
+  
+  $scope.$watch('input_break_min', function(value) {
+    $scope.initial_ms_break = value * 1000 * 60;
+  });
 
   $scope.remaining_ms_pomo = '';
   $scope.remaining_ms_break = '';
