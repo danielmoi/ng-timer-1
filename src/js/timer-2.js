@@ -1,8 +1,78 @@
 var app = angular.module('myApp', []);
 
 app.controller('myController', ['$scope', function ($scope) {
-  
-  $scope.myNum = 3;
+
+  var self = this,
+    referenceTime,
+
+    input_pomo = 1,
+    input_break = 1,
+
+
+
+    initial_ms_pomo,
+    initial_ms_break,
+
+    remaining_ms_pomo,
+    remaining_ms_break,
+
+    initial_ms,
+    current_ms,
+    remaining_ms,
+
+
+    remaining_percent = 1,
+    display = document.getElementById('timer1'),
+    circle = $('#circle1'),
+    maxOffset = 500,
+    display_min,
+    display_sec,
+    intervalID = false,
+    session = 'pomo',
+    running = 0,
+    fresh = 1;
+
+  $scope.input_pomo = 1;
+  $scope.input_break = 1;
+
+  $scope.initial_ms_pomo = $scope.input_pomo * 1000 * 60;
+  $scope.initial_ms_break = $scope.input_break * 1000 * 60;
+
+  $scope.remaining_ms_pomo = '';
+  $scope.remaining_ms_break = '';
+
+  $scope.initial_ms = '';
+  $scope.current_ms = '';
+  $scope.remaining_ms = '';
+
+  $scope.start = function () {
+    if (running === 0) {
+      referenceTime = Date.now();
+      running = 1;
+      if (fresh === 1) {
+        fresh = 0;
+        if (session === 'pomo') {
+          console.log('starting new POMO!');
+          $scope.current_ms = $scope.initial_ms_pomo;
+          $scope.initial_ms = $scope.initial_ms_pomo;
+        }
+        if (session === 'break') {
+          console.log('starting new BREAK!');
+          $scope.current_ms = $scope.initial_ms_break;
+          $scope.initial_ms = $scope.initial_ms_break;
+        }
+      }
+
+      intervalID = setInterval(function () {
+        var checkTime = Date.now(),
+          actualInterval = checkTime - referenceTime;
+
+        $scope.remaining_ms = $scope.current_ms - actualInterval;
+
+        console.log($scope.remaining_ms);
+      }, 500);
+    }
+  };
 
 
 
