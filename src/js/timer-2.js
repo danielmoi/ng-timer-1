@@ -5,8 +5,8 @@ app.controller('myController', ['$scope', function ($scope) {
   var self = this,
     referenceTime,
 
-    input_pomo = 1,
-    input_break = 1,
+    input_pomo = 0.2,
+    input_break = 0.3,
 
 
 
@@ -32,8 +32,8 @@ app.controller('myController', ['$scope', function ($scope) {
     running = 0,
     fresh = 1;
 
-  $scope.input_pomo = 1;
-  $scope.input_break = 1;
+  $scope.input_pomo = 0.2;
+  $scope.input_break = 0.3;
 
   $scope.initial_ms_pomo = $scope.input_pomo * 1000 * 60;
   $scope.initial_ms_break = $scope.input_break * 1000 * 60;
@@ -109,6 +109,41 @@ app.controller('myController', ['$scope', function ($scope) {
       return $scope.start();
     }
     console.log('this should not be seen in console!');
+  };
+  
+  
+  $scope.reset = function () {
+    running = 0;
+    fresh = 1;
+    clearInterval(intervalID);
+    
+    console.log('reset, intervalID: ' + intervalID);
+    
+  };
+  
+  
+  $scope.pomo_add = function () {
+    if ($scope.input_pomo < 60) {
+      $scope.input_pomo += 1;
+    }
+  };
+  
+  $scope.pomo_minus = function () {
+    if ($scope.input_pomo > 1) {
+      $scope.input_pomo -= 1;
+    }
+  };
+  
+  $scope.break_add = function () {
+    if ($scope.input_break < 60) {
+      $scope.input_break += 1;
+    }
+  };
+  
+  $scope.break_minus = function () {
+    if ($scope.input_break > 1) {
+      $scope.input_break -= 1;
+    }
   };
 
 

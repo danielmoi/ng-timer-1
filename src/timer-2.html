@@ -26,17 +26,17 @@
       <div class="options__pomodoro">
         <h2 class="pomodoro">Pomodoro</h2>
         <h4>
-          <i id="p-add" class="fa fa-plus-square pomodoro"></i>
-          <input id="options__pomodoro-length" class="pomodoro" type="text" data-bind="textInput: pomo_input">
-          <i id="p-minus" class="fa fa-minus-square pomodoro"></i>
+          <i id="p-add" class="fa fa-plus-square pomodoro" ng-click="pomo_add()"></i>
+          <input id="options__pomodoro-length" class="pomodoro" type="text" ng-model="input_pomo">
+          <i id="p-minus" class="fa fa-minus-square pomodoro" ng-click="pomo_minus()"></i>
         </h4>
       </div>
       <div class="options__break">
         <h2 class="break">Break</h2>
         <h4>
-          <i id="b-add" class="fa fa-plus-square break"></i>
-          <input id="options__break-length" class="break" type="text" data-bind="textInput: break_input">
-          <i id="b-minus" class="fa fa-minus-square break"></i>
+          <i id="b-add" class="fa fa-plus-square break" ng-click="break_add()"></i>
+          <input id="options__break-length" class="break" type="text" ng-model="input_break">
+          <i id="b-minus" class="fa fa-minus-square break" ng-click="break_minus()"></i>
         </h4>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <div id="controls" class="controls">
       <button class="start" ng-click="start()">Start</button>
       <button class="stop" ng-click="stop()">Stop</button>
-      <button class="reset">Reset</button>
+      <button class="reset" ng-click="reset()">Reset</button>
     </div>
 
     <div class="console">
