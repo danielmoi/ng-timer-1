@@ -69,10 +69,48 @@ app.controller('myController', ['$scope', function ($scope) {
 
         $scope.remaining_ms = $scope.current_ms - actualInterval;
 
-        console.log($scope.remaining_ms);
+        console.log(session + ': ' + $scope.remaining_ms);
+
+
+        if ($scope.remaining_ms <= 0) {
+          $scope.stop();
+          $scope.finished();
+        }
+
+
       }, 500);
     }
   };
+
+  $scope.stop = function () {
+    if (running === 1) {
+      running = 0;
+      $scope.current_ms = $scope.remaining_ms;
+      clearInterval(intervalID);
+    }
+    console.log('stop, intervalID: ' + intervalID);
+  };
+  
+  $scope.finished = function () {
+    console.log('finished, interval: ' + intervalID);
+    
+    running = 0;
+    fresh = 1;
+    if (session === 'pomo') {
+      console.log('assigning BREAK');
+      
+      session = 'break';
+      return $scope.start();
+    }
+    if (session === 'break') {
+      console.log('assigning POMO');
+      
+      session = 'pomo';
+      return $scope.start();
+    }
+    console.log('this should not be seen in console!');
+  };
+
 
 
 
